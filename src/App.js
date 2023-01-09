@@ -1,10 +1,12 @@
-import './App.css';
-import ExpenseApp from './ExpenseTracker/ExpenseApp';
+import "./App.css";
+// import ExpenseApp from "./ExpenseTracker/ExpenseApp";
+import StyledApp from "./StyledProject/StyledApp";
 
 function App() {
   return (
     <div className="App">
-      <ExpenseApp/>
+      {/* <ExpenseApp /> */}
+      <StyledApp />
     </div>
   );
 }

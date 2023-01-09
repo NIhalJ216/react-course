@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 
-function ExpenseForm({ onSaveExpenseData }) {
+function ExpenseForm({ onSaveExpenseData, onCancel }) {
   const [inputVals, setInputVals] = useState({
     title: "",
     amount: "",
@@ -13,11 +13,11 @@ function ExpenseForm({ onSaveExpenseData }) {
     setInputVals({ ...inputVals, [name]: value });
   };
 
+  // When adding multiple values, those values are added as strings instead of numbers. enforce a number conversion "amount: +enteredAmount"
   const submitHandler = (event) => {
     event.preventDefault();
     const expenseData = { ...inputVals };
     onSaveExpenseData(expenseData);
-    // console.log(expenseData)
     setInputVals({
       title: "",
       amount: "",
@@ -61,6 +61,9 @@ function ExpenseForm({ onSaveExpenseData }) {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={onCancel}>
+          Cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>
