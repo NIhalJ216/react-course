@@ -1,12 +1,11 @@
+import RoutePaths from "./Routes/RoutePaths";
+
 import "./App.css";
-// import ExpenseApp from "./ExpenseTracker/ExpenseApp";
-import StyledApp from "./StyledProject/StyledApp";
 
 function App() {
   return (
     <div className="App">
-      {/* <ExpenseApp /> */}
-      <StyledApp />
+      <RoutePaths />
     </div>
   );
 }

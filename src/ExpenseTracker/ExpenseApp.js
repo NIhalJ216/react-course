@@ -33,7 +33,7 @@ function ExpenseApp() {
     });
   };
   return (
-    <div>
+    <div style={{ margin: "0px", backgroundColor: "#3f3f3f" }}>
       <NewExpenses onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
