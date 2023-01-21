@@ -5,13 +5,14 @@ import { paths } from "../Routes/Paths";
 function Dashboard() {
   return (
     <div>
-      <h2 className="text-center">DASHBOARD</h2>
+      <h2 className="text-center my-2">DASHBOARD</h2>
       <div className="container text-center">
+        <hr />
         <div className="row my-4">
           {paths.map((itm) => {
             return (
               <div className="col-md-3" key={itm.id}>
-                <div className="card" style={{ width: "18rem" }}>
+                <div className="card">
                   <img src={itm.image} className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">{itm.title}</h5>
