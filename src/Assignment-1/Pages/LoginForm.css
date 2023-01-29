@@ -1,0 +1,10 @@
+.bgImg {
+  padding: 10.9rem;
+  background-image: url("../../Assets/Images/LoginBackground.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+.loginHeading {
+  text-align: center;
+}

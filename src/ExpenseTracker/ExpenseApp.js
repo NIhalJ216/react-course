@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Expenses from "./Components/Expense/Expenses";
 import NewExpenses from "./Components/NewExpense/NewExpenses";
-import "./ExpenseApp.css";
 
 const DUMMY_EXPENSES = [
   {
@@ -33,7 +32,7 @@ function ExpenseApp() {
     });
   };
   return (
-    <div style={{ margin: "0px", backgroundColor: "#3f3f3f" }}>
+    <div>
       <NewExpenses onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
