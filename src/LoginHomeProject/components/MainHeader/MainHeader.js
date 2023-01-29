@@ -1,13 +1,18 @@
-import React from 'react';
+import React from "react";
 
-import Navigation from './Navigation';
-import classes from './MainHeader.module.css';
+import Navigation from "./Navigation";
+import classes from "./MainHeader.module.css";
+import BtnBackToDashboard from "../../../Components/BtnBackToDashboard";
 
 const MainHeader = (props) => {
   return (
-    <header className={classes['main-header']}>
+    <header className={classes["main-header"]}>
       <h1>A Typical Page</h1>
-      <Navigation isLoggedIn={props.isAuthenticated} onLogout={props.onLogout} />
+      <BtnBackToDashboard />
+      <Navigation
+        isLoggedIn={props.isAuthenticated}
+        onLogout={props.onLogout}
+      />
     </header>
   );
 };

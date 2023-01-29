@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import CourseGoalList from "./components/CourseGoals/CourseGoalList/CourseGoalList";
 import CourseInput from "./components/CourseGoals/CourseInput/CourseInput";
+import BtnBackToDashboard from "../Components/BtnBackToDashboard";
 import "./StyledApp.css";
 
 const StyledApp = () => {
@@ -37,6 +38,7 @@ const StyledApp = () => {
 
   return (
     <div>
+      <BtnBackToDashboard />
       <section id="goal-form">
         <CourseInput onAddGoal={addGoalHandler} />
       </section>

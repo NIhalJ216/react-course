@@ -2,6 +2,7 @@ import ExpenseTracker from "../Assets/Images/ExpenseTracker.png";
 import LoginHome from "../Assets/Images/LoginHome.png";
 import Styled from "../Assets/Images/Styled.png";
 import UserAge from "../Assets/Images/UserAge.png";
+import LoginAssignment from "../Assets/Images/LoginAssignment.png";
 
 export const projects = [
   {
@@ -42,7 +43,7 @@ export const assignements = [
   {
     id: "1",
     title: "Assignment-1",
-    image: LoginHome,
+    image: LoginAssignment,
     description:
       "Create a Login form with all form validatiions and display data on next page.",
     linkPath: "/assignment-1",

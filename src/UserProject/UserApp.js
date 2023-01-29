@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AddUser from "./Users/AddUser";
 import UsersList from "./Users/UsersList";
+import BtnBackToDashboard from "../Components/BtnBackToDashboard";
 import "./UserApp.css";
 
 function UserApp() {
@@ -14,6 +15,7 @@ function UserApp() {
   };
   return (
     <div>
+      <BtnBackToDashboard />
       <AddUser onAddUser={addUserhandler} />
       <UsersList users={usersList} />
     </div>

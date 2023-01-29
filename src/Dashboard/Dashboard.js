@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { projects, assignements } from "../Routes/Paths";
+import "./Dashboard.css";
 
 function Dashboard() {
   return (
-    <div>
+    <div className="bgDash">
       <h2 className="text-center">DASHBOARD</h2>
       <div className="container text-center">
         <hr />

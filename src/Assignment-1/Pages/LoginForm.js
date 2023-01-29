@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import BtnBackToDashboard from "../../Components/BtnBackToDashboard";
 import "./LoginForm.css";
 
 function LoginForm(props) {
@@ -39,6 +40,7 @@ function LoginForm(props) {
 
   return (
     <div className="bgImg">
+      <BtnBackToDashboard />
       <h1 className="loginHeading">Login To Your Account</h1>
       <div
         className="shadow p-3 mb-5 bg-body rounded mx-auto"
