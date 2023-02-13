@@ -10,6 +10,7 @@ function Navbar({ onLogout }) {
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
+        <i class="fa-solid fa-bars" style={{ marginRight: "1rem" }} />
         <h4 className="navbar-brand" style={{ marginTop: "0.3rem" }}>
           Assignment-1
         </h4>
