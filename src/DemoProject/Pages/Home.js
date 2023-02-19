@@ -42,7 +42,7 @@ function Home() {
     // updatePayload({ [name]: checked });
     updatePayload({ [name]: value });
   };
-  console.log("Payloads", payload);
+  // console.log("Payloads", payload);
   return (
     <Grid container spacing={2} sx={{ p: 3 }}>
       <Grid item xs={12}>

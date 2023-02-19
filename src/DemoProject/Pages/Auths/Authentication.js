@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LoginPage from "./LoginPage";
+import MiniDrawer from "../../../Components/SideNavbar";
 
 function Authentication() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -9,25 +10,22 @@ function Authentication() {
     password: "",
   });
 
-  console.log("erroer", isError);
-
   const loginHandler = (userDetails) => {
-    console.log("LoggedIn");
-    // const { email, password } = userDetails;
-    // if (email === "admin@admin.com" && password === "admin123") {
-    if (!userDetails) {
-      setIsError(true);
-    } else {
+    const { email, password } = userDetails;
+    if (email === "admin@admin.com" && password === "admin123") {
       setIsError(false);
       localStorage.setItem("isLoggedIn", "1");
       setIsLoggedIn(true);
+    } else {
+      setIsError(true);
+      setIsLoggedIn(false);
     }
   };
 
-  // const logoutHandler = () => {
-  //   localStorage.removeItem("isLoggedIn");
-  //   setIsLoggedIn(false);
-  // };
+  const logoutHandler = () => {
+    localStorage.removeItem("isLoggedIn");
+    setIsLoggedIn(false);
+  };
 
   useEffect(() => {
     const infoLoggedIn = localStorage.getItem("isLoggedIn");
@@ -36,8 +34,11 @@ function Authentication() {
     }
   }, []);
 
+  console.log("AuthError", isError);
+
   return (
     <div className="main-body">
+      {/* {!isLoggedIn && ( */}
       <LoginPage
         onLogin={loginHandler}
         isError={isError}
@@ -45,17 +46,9 @@ function Authentication() {
         userDetails={userDetails}
         setUserDetails={setUserDetails}
       />
-      {/* {!isLoggedIn && (
-        <LoginPage
-          onLogin={loginHandler}
-          onError={isError}
-          setOnError={setIsError}
-          userDetails={userDetails}
-          setUserDetails={setUserDetails}
-        />
-      )}
-      {isLoggedIn && <LandingPage />} */}
-      {/* <LandingPage /> */}
+      {/* )} */}
+
+      {/* {isLoggedIn && <MiniDrawer logoutHandler={logoutHandler} />} */}
     </div>
   );
 }

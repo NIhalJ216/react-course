@@ -14,22 +14,20 @@ function LoginPage({
 
   const checkErrors = () => {
     validateForm();
-    navigateToLandingPage();
+    if (isError) {
+      setCredentials(true);
+    } else {
+      navigateToLandingPage();
+    }
   };
 
   const navigateToLandingPage = () => {
-    console.log("LoginError", isError);
-    if (isError) {
-      setCredentials(true);
-    }
     onLogin(userDetails);
-    // navigate("/landing-page", { replace: true });
   };
 
   const validateForm = () => {
     setIsError(
-      !userDetails.email.includes("@") &&
-        !userDetails.password.trim().length > 6
+      userDetails.email.includes("@") && userDetails.password.trim().length < 6
     );
   };
 
@@ -46,8 +44,7 @@ function LoginPage({
       setPasswordType("password");
     }
   };
-
-  console.log("Creds", credentials);
+  console.log("LogError", isError);
   return (
     <>
       <h1>Login To Your Account</h1>

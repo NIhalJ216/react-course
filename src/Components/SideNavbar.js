@@ -18,9 +18,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import companyLogo from "../../Assets/Images/companyLogo.jpg";
 import SidebarList from "./SidebarList";
-import Paths from "../Routes/Paths";
+import Paths from "../DemoProject/Routes/Paths";
 
 const drawerWidth = 180;
 
@@ -89,7 +88,7 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
-export default function MiniDrawer() {
+export default function MiniDrawer({ logoutHandler }) {
   const theme = useTheme();
   const anchorRef = useRef(null);
   const [open, setOpen] = useState(false);
@@ -130,7 +129,7 @@ export default function MiniDrawer() {
           <Typography variant="h6" noWrap component="div">
             Company Name
           </Typography>
-          <Typography variant="body1" style={{ marginLeft: "55rem" }}>
+          <Typography variant="body1" style={{ marginLeft: "54rem" }}>
             <b>{moment().format("Do MMM YYYY")}</b>
           </Typography>
           <Typography variant="body1" style={{ marginLeft: "1rem" }}>
@@ -154,7 +153,11 @@ export default function MiniDrawer() {
               }}
             >
               <Box sx={{ p: 2, width: 180 }}>
-                <Button variant="contained" size="small">
+                <Button
+                  variant="contained"
+                  size="small"
+                  onClick={logoutHandler}
+                >
                   Logout
                 </Button>
               </Box>
@@ -164,7 +167,7 @@ export default function MiniDrawer() {
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          <img src={companyLogo} alt="Company Logo" />
+          {/* <img src={} alt="Company Logo" /> */}
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
               <ChevronRightIcon />
