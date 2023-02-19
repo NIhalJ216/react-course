@@ -1,13 +1,11 @@
 import React from "react";
-// import Navbar from "../Components/Navbar";
-import NavDrawer from "../Components/NavDrawer";
+import Navbar from "../Components/Navbar";
 import "./LandingPage.css";
 
 function LandingPage({ onLogout, userDetails }) {
   return (
     <div>
-      {/* <Navbar onLogout={onLogout} /> */}
-      <NavDrawer />
+      <Navbar onLogout={onLogout} />
       <div className="bgLImg">
         <div className="container">
           <h1 style={{ textAlign: "center" }}>Hello User,</h1>

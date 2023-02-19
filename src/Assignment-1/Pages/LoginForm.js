@@ -58,7 +58,7 @@ function LoginForm(props) {
             placeholder="Please Enter your email"
             onChange={handleChange}
             onBlur={handleChange}
-            // style={{ background: !props.onError ? "#f6b0b0" : "#e8f0fe" }}
+            style={{ background: !props.onError ? "#f6b0b0" : "#e8f0fe" }}
           />
         </div>
         <div className="mb-2">
@@ -74,7 +74,7 @@ function LoginForm(props) {
               placeholder="Please Enter your password"
               onChange={handleChange}
               onBlur={handleChange}
-              // style={{ background: !props.onError ? "#f6b0b0" : "#e8f0fe" }}
+              style={{ background: !props.onError ? "#f6b0b0" : "#e8f0fe" }}
             />
             <i
               className="fa-solid fa-eye mx-2"
@@ -95,7 +95,7 @@ function LoginForm(props) {
             type="button"
             className="btn btn-success"
             onClick={navigateToLandingPage}
-            // disabled={!props.onError}
+            disabled={!props.onError}
           >
             Login
           </button>
