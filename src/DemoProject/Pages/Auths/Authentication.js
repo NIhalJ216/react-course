@@ -11,11 +11,17 @@ function Authentication() {
   });
 
   const loginHandler = (userDetails) => {
+    console.log("dets", userDetails);
     const { email, password } = userDetails;
-    if (email === "admin@admin.com" && password === "admin123") {
-      setIsError(false);
-      localStorage.setItem("isLoggedIn", "1");
-      setIsLoggedIn(true);
+    if (email.includes("@") && password.length >= 6) {
+      if (email === "admin@admin.com" && password === "admin123") {
+        setIsError(false);
+        localStorage.setItem("isLoggedIn", "1");
+        setIsLoggedIn(true);
+      } else {
+        setIsError(true);
+        setIsLoggedIn(false);
+      }
     } else {
       setIsError(true);
       setIsLoggedIn(false);
@@ -34,21 +40,18 @@ function Authentication() {
     }
   }, []);
 
-  console.log("AuthError", isError);
-
   return (
     <div className="main-body">
-      {/* {!isLoggedIn && ( */}
-      <LoginPage
-        onLogin={loginHandler}
-        isError={isError}
-        setIsError={setIsError}
-        userDetails={userDetails}
-        setUserDetails={setUserDetails}
-      />
-      {/* )} */}
-
-      {/* {isLoggedIn && <MiniDrawer logoutHandler={logoutHandler} />} */}
+      {!isLoggedIn && (
+        <LoginPage
+          onLogin={loginHandler}
+          userDetails={userDetails}
+          setUserDetails={setUserDetails}
+          isError={isError}
+          setIsError={setIsError}
+        />
+      )}
+      {isLoggedIn && <MiniDrawer logoutHandler={logoutHandler} />}
     </div>
   );
 }
