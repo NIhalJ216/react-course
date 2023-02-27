@@ -127,9 +127,9 @@ export default function MiniDrawer({ logoutHandler }) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Company Name
+            Tiffin Management System
           </Typography>
-          <Typography variant="body1" style={{ marginLeft: "54rem" }}>
+          <Typography variant="body1" style={{ marginLeft: "48rem" }}>
             <b>{moment().format("Do MMM YYYY")}</b>
           </Typography>
           <Typography variant="body1" style={{ marginLeft: "1rem" }}>
@@ -156,6 +156,7 @@ export default function MiniDrawer({ logoutHandler }) {
                 <Button
                   variant="contained"
                   size="small"
+                  fullWidth
                   onClick={logoutHandler}
                 >
                   Logout
@@ -179,7 +180,7 @@ export default function MiniDrawer({ logoutHandler }) {
         <Divider />
         <SidebarList />
       </Drawer>
-      <div style={{ marginTop: "4rem" }}>
+      <div style={{ marginTop: "4rem", overflowX: "hidden" }}>
         <Paths />
       </div>
     </Box>
