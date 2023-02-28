@@ -20,6 +20,7 @@ import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SidebarList from "./SidebarList";
 import Paths from "../DemoProject/Routes/Paths";
+import tiffinService from "../Assets/Images/tiffinService.png";
 
 const drawerWidth = 180;
 
@@ -168,7 +169,11 @@ export default function MiniDrawer({ logoutHandler }) {
       </AppBar>
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
-          {/* <img src={} alt="Company Logo" /> */}
+          <img
+            src={tiffinService}
+            alt="Company Logo"
+            style={{ height: "3rem" }}
+          />
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
               <ChevronRightIcon />

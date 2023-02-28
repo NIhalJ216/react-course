@@ -26,7 +26,9 @@ function Home() {
   const [startDate, setHandledate] = useState(dayjs());
   const [showTable, setShowTable] = useState(false);
   const [tableData, setTableData] = useState([]);
+  const [isTrial, setIsTrial] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [isNotTrial, setIsNotTrial] = useState(false);
 
   const [payload, setPayload] = useState({
     orderFor: "",
@@ -45,9 +47,15 @@ function Home() {
 
   const handleChange = (event) => {
     const { name, checked, value } = event.target;
-    if (["trial", "weekly", "monthly", "dinner", "lunch"].includes(name)) {
+    if (["dinner", "lunch"].includes(name)) {
       updatePayload({ [name]: checked });
     } else {
+      if (value === "Trial") {
+        setIsTrial(true);
+      } else if (name === "orderFor") {
+        setIsTrial(false);
+        setIsNotTrial(true);
+      }
       updatePayload({ [name]: value });
     }
   };
@@ -94,14 +102,37 @@ function Home() {
         const dinnerInstruction = payload.dinner ? dinnerMealInstruction : "";
 
         while (dayjs(currentDate).diff(endDate) <= 0) {
-          tempTableData.push({
-            rowId,
-            currentDate: dayjs(currentDate).format("DD-MMM-YYYY"),
-            lunchType,
-            lunchInstruction,
-            dinnerType,
-            dinnerInstruction,
-          });
+          if (isTrial) {
+            if (isNotTrial) {
+              tempTableData.push({
+                rowId: tableData.length + 1,
+                currentDate: dayjs(currentDate).format("DD-MMM-YYYY"),
+                lunchType,
+                lunchInstruction,
+                dinnerType,
+                dinnerInstruction,
+              });
+            } else {
+              tempTableData.push(...tableData, {
+                rowId: tableData.length + 1,
+                currentDate: dayjs(currentDate).format("DD-MMM-YYYY"),
+                lunchType,
+                lunchInstruction,
+                dinnerType,
+                dinnerInstruction,
+              });
+            }
+            setIsNotTrial(false);
+          } else {
+            tempTableData.push({
+              rowId,
+              currentDate: dayjs(currentDate).format("DD-MMM-YYYY"),
+              lunchType,
+              lunchInstruction,
+              dinnerType,
+              dinnerInstruction,
+            });
+          }
           currentDate = dayjs(currentDate).add(1, "day");
           rowId++;
         }
@@ -125,6 +156,7 @@ function Home() {
   };
 
   console.log("Payloads", payload);
+  console.log("TableDatas", tableData);
 
   return (
     <Grid container spacing={2} sx={{ p: 3 }}>
@@ -212,7 +244,10 @@ function Home() {
             {payload.lunch && (
               <Grid item xs={12} p={3} style={{ paddingTop: "0rem" }}>
                 <Grid container spacing={2}>
-                  <Typography variant="h6" style={{ marginLeft: "1rem" }}>
+                  <Typography
+                    variant="h6"
+                    style={{ marginLeft: "1rem", marginBottom: "0.5rem" }}
+                  >
                     Lunch
                   </Typography>
                   <Grid item xs={12} style={{ paddingTop: "0rem" }}>
@@ -311,7 +346,10 @@ function Home() {
             {payload.dinner && (
               <Grid item xs={12} p={3} style={{ paddingTop: "0rem" }}>
                 <Grid container spacing={2}>
-                  <Typography variant="h6" style={{ marginLeft: "1rem" }}>
+                  <Typography
+                    variant="h6"
+                    style={{ marginLeft: "1rem", marginBottom: "0.5rem" }}
+                  >
                     Dinner
                   </Typography>
                   <Grid item xs={12} style={{ paddingTop: "0rem" }}>
